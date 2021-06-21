@@ -32,7 +32,7 @@ public class StockExchangeServiceImpl implements StockExchangeService {
 	@Transactional
 	public StockExchangeDto getStockExchangeById(Long stockExchangeId) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		return modelMapper.map(stockExchangeRepo.findById(stockExchangeId), StockExchangeDto.class);
+		return modelMapper.map(stockExchangeRepo.findById(stockExchangeId).get(), StockExchangeDto.class);
 	}
 
 	@Override

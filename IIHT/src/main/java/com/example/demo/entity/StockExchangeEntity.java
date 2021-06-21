@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,14 +13,15 @@ public class StockExchangeEntity
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Column(name = "id")
+	private Long stockExchangeId;
 	private String stockExchangeName;
 	private String brief;
 	private String address;
 	private String remarks;
 	StockExchangeEntity(Long id, String stockExchangeName, String brief, String address, String remarks) {
 		super();
-		this.id = id;
+		this.stockExchangeId = id;
 		this.stockExchangeName = stockExchangeName;
 		this.brief = brief;
 		this.address = address;
@@ -28,11 +30,12 @@ public class StockExchangeEntity
 	public StockExchangeEntity() {
 		super();
 	}
-	public Long getId() {
-		return id;
+	
+	public Long getStockExchangeId() {
+		return stockExchangeId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setStockExchangeIid(Long stockExchangeId) {
+		this.stockExchangeId = stockExchangeId;
 	}
 	public String getStockExchangeName() {
 		return stockExchangeName;

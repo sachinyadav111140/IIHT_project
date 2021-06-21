@@ -9,6 +9,6 @@ import antlr.collections.List;
 @Repository
 public interface IpoDetailsRepo extends JpaRepository<IpoDetailsEntity,Long>{
 	public void deleteByCompanyName(String companyName);
-	public List findByCompanyName(String companyName);
+	public IpoDetailsEntity findByCompanyName(String companyName);
 
 }

@@ -21,12 +21,9 @@ public class SectorServiceImpl implements SectorService{
 	private ModelMapper modelMapper;
 	
 	@Override
-	@Transactional
-	public SectorEntity getSectorById(Long sectorId)
-	{	
-		return sectorRepo.getById(sectorId);
-	//modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-	//return modelMapper.map(sectorRepo.findById(sectorId), SectorDto.class);
+	public SectorDto getSectorById(Long sectorId) {
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		return modelMapper.map(sectorRepo.findById(sectorId).get(), SectorDto.class);
 	}
 	@Override
 	@Transactional

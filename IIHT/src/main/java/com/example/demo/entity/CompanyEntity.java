@@ -20,7 +20,7 @@ public class CompanyEntity
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name = "company_id")
-private Long id;
+private Long companyId;
 @Column(name = "company_name")
 private String companyName;
 @Column(name="company_code")
@@ -38,11 +38,12 @@ private Set<String> listedInStockExchange = new HashSet<>();
 private String sectorName;
 private long turnover;
 private String about;
-public Long getId() {
-	return id;
+
+public Long getCompanyId() {
+	return companyId;
 }
-public void setId(Long id) {
-	this.id = id;
+public void setCompanyId(Long companyId) {
+	this.companyId = companyId;
 }
 public String getCompanyName() {
 	return companyName;

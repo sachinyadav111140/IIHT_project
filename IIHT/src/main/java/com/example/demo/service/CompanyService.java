@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -26,7 +28,7 @@ public class CompanyService {
 	{
 		//return companyRepo.findById(companyId);
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		return modelMapper.map(companyRepo.findById(companyId), CompanyDto.class);
+		return modelMapper.map(companyRepo.findById(companyId).get(), CompanyDto.class);
 	}
 	@Transactional
 	public CompanyDto getCompanyByName(String companyName) {
@@ -53,9 +55,9 @@ public class CompanyService {
 	}
   @Transactional
 public List getAllcompanies() {
-	modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-	List allCompanies = (List) companyRepo.findAll().stream().map(c -> modelMapper.map(c, CompanyDto.class)).collect(Collectors.toList());
-	return allCompanies;
+	  modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+		List allCompanies = (List) companyRepo.findAll().stream().map(c -> modelMapper.map(c, CompanyDto.class)).collect(Collectors.toList());
+		return allCompanies;
 }
 
 }
